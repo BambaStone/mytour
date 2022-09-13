@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7156c50ef7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+
+    /*태훈============================================================*/
+
+
+    /*콘텐츠1*/
+    #content1{
+            width: 1200px;
+            height: 450px;
+            position: relative;
+            margin: 0 auto;
+            background: url("img/main_banner.jpg") no-repeat;
+        }
+
+        #insidebox{
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            right: 50px;
+            top: 50px;
+            background: rgba(255, 255, 255, 0.452);
+        }
+        #insidebox>ul{
+            list-style: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: inline-block;
+        }
+        #insidebox>ul>li>label{
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            top: 70px;
+            display: inline-block;
+        }
+        #insidebox>ul>li>label::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-bottom: 3px solid black;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .insidecontent{
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            bottom: 0;
+            left: 0;
+        }
+        #insidebox>h1{
+            display: block;
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        #insidebox>ul>li>input[type="radio"]:checked ~ .insidecontent{
+            display: block;
+        }
+        #insidebox>ul>li>input[type="radio"]:checked +label::after{
+            opacity: 1;
+        }
+        #insidebox>ul>li:nth-child(1)>label{
+            left: 25%;
+            transform: translateX(-50%);
+        }
+        #insidebox>ul>li:nth-child(2)>label{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #insidebox>ul>li:nth-child(3)>label{
+            left: 75%;
+            transform: translateX(-50%);
+        }
+        #insidebox>ul>li>input[type="radio"]{
+            display: none;
+        }
+
+        #airbtn,#hotelbtn,#searchbtn{
+            outline: none;
+            border: none;
+            width: 300px;
+            background: rgb(48, 48, 48);
+            position: absolute;
+            left: 25px;
+            bottom: 25px;
+            cursor: pointer;
+            color: white;
+        }
+        #searchbtn{
+            height: 50px;
+        }
+        #hotelbtn{
+            height: 50px;
+        }
+        #airbtn{
+            height: 40px;
+        }
+        /*=====================================================*/
+        /*===================패키지부분=========================*/
+        /*=====================================================*/
+
+        #pakdest{
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            border: none;
+            outline: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            background: white
+        }
+        #dests{
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            position: absolute;
+            top: 20px;
+            left: 175px;
+            border: none;
+            outline: none;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        #goday{
+            width: 300px;
+            height: 50px;
+            font-size: 18px;
+            position: absolute;
+            top: 100px;
+            left: 25px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        /*=====================================================*/
+        /*===================패키지부분=========================*/
+        /*=====================================================*/
+
+        /*=====================================================*/
+        /*=====================항공부분=========================*/
+        /*=====================================================*/
+        #seat{
+            width: 300px;
+            height: 30px;
+            background: white;
+            display: inline-block;
+            position: absolute;
+            left: 25px;
+            bottom: 70px;
+            z-index: 9999;
+        }
+        #seat>#seatbtn{
+            outline: none;
+            border: none;
+            width: 300px;
+            height: 30px;
+            display: inline-block;
+            color: white;
+            background: rgb(48, 48, 48);
+            font-size: 14px;
+        }
+        #seat>#seatbox{
+            width: 300px;
+            height: 0;
+            background: white;
+            
+            border: 1px solid #bbb;
+            position: absolute;
+            display: block;
+            top: 30px;
+            left: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        #seat:hover>#seatbox{
+            height: 420px;
+            opacity: 1;
+        }
+        #seat>#seatbox>div,#seat>#seatbox>h2,#seat>#seatbox>p{
+            display: block;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        #seat>#seatbox>p{
+            font-size: 14px;
+        }
+        #seat>#seatbox>div>label{
+            cursor: pointer;
+        }
+        #seat>#seatbox>input[type="button"]
+        {
+            display: inline-block;
+            position: absolute;
+            bottom: 20px;
+            left: 25px;
+            width: 250px;
+            margin: 0 auto;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #airtickets{
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            left: 25px;
+            top: 40px;
+        }
+        #airtickets>input[type="radio"]{
+            display: none;
+        }
+        #airtickets>label{
+            position: absolute;
+            width: 60px;
+            height: 25px;
+            background: rgb(180, 180, 180);
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px black;
+            top: -35px;
+            text-align: center;
+            padding-top: 5px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        #airtickets>#single+label{
+            left: 70px;
+        }
+        #airtickets>div{
+            width: 0px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: inline-block;
+            overflow: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        #airtickets>div>input[type="date"]{
+            font-size: 16px;
+            width: 130px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            display: block;
+            border: none;
+            outline: none;
+            border-radius: 25px;
+        }
+        #come{
+            left: 160px;
+        }
+        #airtickets>div>p{
+            width: 40px;
+            height: 20px;
+            position: absolute;
+            top: 15px;
+            left: 126px;
+            transform: rotate(90deg);
+        }
+        #airtickets>div>p>i{
+            font-size: 14px;
+        }
+        #airtickets>div>input[type="date"]::-webkit-datetime-edit-year-field{
+            display: none;
+        }
+        #airtickets>div>input[type="date"]::-webkit-datetime-edit-month-field,
+        #airtickets>div>input[type="date"]::-webkit-datetime-edit-day-field{
+            margin-left: 10px;
+        }
+        #airtickets>div>input[type="date"]::-webkit-datetime-edit-text{
+            display: none;
+        }
+        #airtickets>#shuttle:checked ~#shuttledate,
+        #airtickets>#single:checked ~#singledate{
+            width: 300px;
+            opacity: 1;
+        }
+        #airtickets>input[type="radio"]:checked +label{
+            box-shadow: 0px 0px 2px black;
+            transform: translate(2px,2px);
+            background: rgb(129, 129, 129);
+        }
+
+
+        #start,#end{
+            position: absolute;
+            top: 80px;
+        }
+        #start{
+            left: 25px;
+        }
+        #end{
+            left: 185px;
+        }
+        #start>p{
+            font-size: 14px;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            top: 20px;
+            left: 130px;
+            transform: rotate(90deg);
+        }
+        .airportsel{
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .airportssel
+        {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        #start>select,#end>select{
+            display: block;
+            font-size: 14px;
+            height: 30px;
+            margin: 0 auto;
+            width: 130px;
+            text-align: center;
+            margin-top: 0px;
+            border: none;
+            outline: none;
+        }
+        /*=====================================================*/
+        /*=====================항공부분=========================*/
+        /*=====================================================*/
+
+
+        /*=====================================================*/
+        /*=====================호텔부분=========================*/
+        /*=====================================================*/
+
+        #hoteldest{
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            position: absolute;
+            top: 10px;
+            left: 25px;
+            border: none;
+            outline: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        #hoteldests{
+            width: 150px;
+            height: 50px;
+            font-size: 18px;
+            position: absolute;
+            top: 10px;
+            left: 175px;
+            border: none;
+            outline: none;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        #hoteldate{
+            width: 300px;
+            height: 50px;
+            background: white;
+            position: absolute;
+            top: 70px;
+            left: 25px;
+            padding-left: 5px;
+            border-radius: 5px;
+        }
+        #hoteldate>input[type="date"]{
+            font-size: 18px;
+            display: inline-block;
+            width: 130px;
+            height: 50px;
+            border: none;
+            outline: none;
+        }
+        #hoteldate>p{
+            font-size: 25px;
+            display: inline-block;
+        }
+        #hoteldate>input[type="date"]::-webkit-datetime-edit-year-field{
+            display: none;
+        }
+        #hoteldate>input[type="date"]::-webkit-datetime-edit-month-field,
+        #hoteldate>input[type="date"]::-webkit-datetime-edit-day-field{
+            margin-left: 10px;
+        }
+        #hoteldate>input[type="date"]::-webkit-datetime-edit-text{
+            display: none;
+        }
+        #room{
+            width: 300px;
+            height: 40px;
+            position: absolute;
+            top: 130px;
+            left: 25px;
+            background: white;
+        }
+        #roombtn{
+            width: 300px;
+            height: 40px;
+            border: none;
+            outline: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgb(48, 48, 48);
+            color: white;
+            cursor: pointer;
+        }
+        #roombox{
+            width: 300px;
+            height: 0px;
+            border: 1px solid #bbb;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background: white;
+            z-index: 9999;
+            opacity: 0;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        #roombox>div>*{
+            font-size: 20px;
+            margin-top: 10px;
+            margin-left: 10px;
+            width: 80px;
+        }
+        #roombox>p{
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        #room:hover > #roombox{
+            opacity: 1;
+            height: 230px;
+        }
+        #room>#roombox>input[type="button"]{
+            width: 280px;
+            height: 50px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        /*=====================================================*/
+        /*=====================호텔부분=========================*/
+        /*=====================================================*/
+    /*태훈============================================================*/
+
+
+    /* 할인투어 리스트 */
+    #sale, #recommend {
+        position: relative;
+        width: 1200px;
+        height: 600px;
+        margin: 0 auto;
+
+        overflow: hidden;
+    }
+
+    .sale_title h2{
+        width: 100%;
+        margin: 50px 0;
+        margin-left: 25px;
+    }
+
+    .sale_list{
+        width: 1200px;
+        position: absolute;
+        float: left;
+        left: 25px;
+        /* margin-left: 20px; */
+    }
+
+    .sale_list a{
+        width: 300px;
+        float: left;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .sale_list img{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+
+    .sale_list strong{
+        margin-left: 5px;
+        word-break: break-all;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .sale_list li p{
+        width: 230px;
+        word-break: break-all;
+        margin: 10px 5px 10px 5px;
+        font-size: 14px;
+    }
+
+    /* 코로나 접종 여행지  */
+    #covid {
+        position: relative;
+        width: 1200px;
+        height: 550px;
+        margin: 0 auto;
+
+        overflow: hidden;
+    }
+
+    #covid .covid_bg{
+        width: 420px;
+        height: 460px;
+        background: url(img/paris_tour.jpg);
+        /* 임시배경, 이미지 삽입해야함 */
+        position: relative;
+    }
+
+    .covid_bg h2{
+        padding-top: 40px;
+        margin-left: 30px;
+        color: #fff;
+    }
+
+
+    .tabs input[type="radio"]{
+        display: block;
+        visibility: hidden;
+        /* appearance: none; */
+        border-radius: 30px;
+        margin: 0;
+    }
+
+    .tabs{
+        position: absolute;
+        top: 120px;
+        left: 0;
+    }
+    
+    .tabs input[type="radio"]+label>span{
+        width: 240px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        display: block;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50px;
+        cursor: pointer;
+        margin: 10px 0 0 30px ;
+    }
+
+    .tabs input[type="radio"]:checked+label>span{
+        background: #fff;
+    }
+
+
+
+    #japan_list{
+        width: 1200px;
+        position: absolute;
+        top: -50px;
+        left: 310px;
+        overflow: hidden;
+        display: none;
+        
+    }
+
+    #Europe_list,
+    #hawaii_list,
+    #Turkiye_list{
+        width: 1200px;
+        position: absolute;
+        top: -50px;
+        left: 310px;
+        overflow: hidden;
+        display: none;
+        
+    }
+
+    #japan_list .tab_content,
+    #Europe_list .tab_content,
+    #hawaii_list .tab_content,
+    #Turkiye_list .tab_content {
+        float: left;
+        width: 262px;
+        height: 340px;
+        box-sizing: border-box;
+        background: #fff;
+        border: 1px solid #aaa;
+        margin-left: 30px;
+        padding: 0;
+
+    }
+
+
+    #japan:checked ~ #japan_list,
+    #Europe:checked ~ #Europe_list,
+    #hawaii:checked ~ #hawaii_list,
+    #Turkiye:checked ~ #Turkiye_list{
+        display: block;
+    }
+
+    
+
+
+    .tab_content a{
+        color: #333;
+
+    }
+
+    .tab_content p{
+        margin: 10px 0 10px 15px;
+        font-size: 14px;
+    }
+
+    .tab_content strong{
+        margin-left: 15px;
+    }
+
+    #japan_list .tab_content a strong{
+        display: block;
+        margin-top:10px ;
+    }
+    
+
+    /* ---------------------------------- */
+
+    /* #recommend {
+        position: relative;
+        width: 1200px;
+        height: 600px;
+        margin: 0 auto;
+    }
+        /* overflow: hidden; */
+
+
+    .recommend_list{
+        width: 1200px;
+        position: absolute;
+        float: left;
+        left: 25px;
+        /* margin-left: 20px; */
+    }
+
+
+    .recommend_title h2{
+        width: 100%;
+        margin: 50px 0;
+        margin-left: 25px;
+    }
+
+    
+    .recommend_list a{
+        width: 300px;
+        float: left;
+        text-decoration: none;
+        color: #333;
+        margin: 0 auto;
+    }
+
+    .recommend_list img{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .recommend_list li strong{
+        margin-left: 5px;
+        word-break: break-all;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .recommend_list li p{
+        width: 230px;
+        word-break: break-all;
+        margin: 10px 5px 10px 5px;
+        font-size: 14px;
+    }
+    
+    .back{
+        position:relative;
+        bottom: -120px; 
+        left: -30px;
+    }
+
+    .next{
+        position:relative;
+        bottom: -120px; 
+        left: 1190px;
+    }
+
+    .slide{
+        width:1200px; 
+        height:600px;
+    }
+
+    button i{
+        color: rgb(117, 117, 117);
+        font-size: 25px;
+    }
+    
+    button{
+        border: 0;
+        outline: none;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #starting {
+        position: relative;
+        width: 100%;
+        height: 680px;
+        margin: 0 auto;
+
+        overflow: hidden;
+
+        background: #f9feff;
+    }
+
+    #starting #starting_tab{
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+
+    }
+
+    .starting_list{
+        width: 1200px;
+        position: absolute;
+        float: left;
+        left: 25px;
+        top: 200px;
+        /* margin-left: 20px; */
+    }
+
+
+    .starting_title h2{
+        width: 100%;
+        margin: 50px 0;
+        margin-left: 25px;
+    }
+
+    #day_list{
+        width: 100px;
+        margin: 10px;
+        float: left;
+        transform: translateX(270px);
+
+        /* border: 1px solid #333; */
+    }
+
+    #starting_001+label p,
+    #starting_002+label p,
+    #starting_003+label p,
+    #starting_004+label p,
+    #starting_005+label p{
+        color: rgb(160, 160, 160) ;
+    }
+
+    #starting_001+label,
+    #starting_002+label,
+    #starting_003+label,
+    #starting_004+label,
+    #starting_005+label{
+        text-align: center;
+        cursor: pointer;
+        width: 100px;
+        margin: 10px;
+        float: left;
+        transform: translateX(270px);
+    }
+    #starting_001:checked+label:after,
+    #starting_002:checked+label:after,
+    #starting_003:checked+label:after,
+    #starting_004:checked+label:after,
+    #starting_005:checked+label:after{
+        /* border-bottom: 3px solid #333; */
+        position: absolute;
+        content: "";
+        display: block;
+        width: 90px;
+        height: 3px;
+        background: #333;
+        bottom: -10px;
+        left: 7px;
+    }
+
+    #starting_001:checked+label p,
+    #starting_002:checked+label p,
+    #starting_003:checked+label p,
+    #starting_004:checked+label p,
+    #starting_005:checked+label p{
+        font-weight: 600;
+        color: #333;
+    }
+    
+    #starting_001:checked ~ #starting_list_001,
+    #starting_002:checked ~ #starting_list_002,
+    #starting_003:checked ~ #starting_list_003,
+    #starting_004:checked ~ #starting_list_004,
+    #starting_005:checked ~ #starting_list_005{
+        display: block;
+    }
+    
+    /* #day_list label p{
+        margin-bottom: 20px;
+    } */
+
+
+    #starting_tab input[type="radio"]{
+        position: absolute;
+        width: 100%;
+        visibility: hidden;
+    }
+
+
+    .starting_list{
+        display: none;
+    }
+
+    .starting_list a{
+        float: left;
+        width: 300px;
+        text-decoration: none;
+        color: #333;
+        margin: 0 auto;
+        
+    }
+
+
+    .starting_list li strong{
+        width: 250px;
+        display: block;
+        font-size: 16px;
+        margin: 10px 0;
+        word-break: break-all;
+    }
+
+    .starting_list li p{
+        width: 250px;
+        display: block;
+        word-break: break-all;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* 출발임박 */
+
+    #thema {
+        position: relative;
+        width: 1200px;
+        height: 560px;
+        margin: 0 auto;
+    }
+
+    .thema_title {
+        width: 1200px;
+        display: block;
+        float: left;
+        margin: 25px;
+    }
+
+    .thema_title h3{
+        margin: 10px 0 ;
+        margin-top: 40px;
+    }
+
+    .thema_title h2{
+        margin-bottom: 40px;
+    }
+
+    #img_list{
+        width: 100%;
+    }
+
+    .content{
+        text-align: center;
+    }
+
+    .background-wrap span, .background-wrap2 span, 
+        .background-wrap3 span, .background-wrap4 span {
+            color: white;
+            transition: 0.3s;
+        }
+        .background-wrap:hover span, .background-wrap2:hover span,
+        .background-wrap3:hover span, .background-wrap4:hover span{
+            font-size: 25px;
+        } 
+
+        .background-wrap:hover, .background-wrap2:hover,
+        .background-wrap3:hover,.background-wrap4:hover {
+            background-size: 108%;
+            opacity: 0.8;
+        }
+
+        
+    .background-wrap {
+            background: url(img/Thema_single.jpg)no-repeat;
+            background-size: 100%;
+            background-position: center;
+            width: 250px;
+            height: 250px;
+            
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+            position: absolute;
+            top: 210px;
+            left: 25px;
+        }
+
+        .background-wrap2 {
+            background: url(img/Thema_together.jpg)no-repeat;
+            background-size: 100%;
+            background-position: center;
+            width: 250px;
+            height: 250px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+            position: absolute;
+            top: 210px;
+            left: 325px;
+        }
+
+        .background-wrap3 {
+            background: url(img/Thema_honeymoon.jpg)no-repeat;
+            background-size: 100%;
+            background-position: center;
+            width: 250px;
+            height: 250px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+            position: absolute;
+            top: 210px;
+            left: 625px;
+        }
+
+        .background-wrap4 {
+            background: url(img/Thema_golf.jpg)no-repeat;
+            background-size: 100%;
+            background-position: center;
+            width: 250px;
+            height: 250px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+            position: absolute;
+            top: 210px;
+            left: 925px;
+        }   
+        /* 테마별 여행 */
+
+        #event {
+            position: relative;
+            width: 1200px;
+            height: 550px;
+            margin: 0 auto;
+        }
+
+        #event h2{
+            width: 100%;
+            margin: 60px 0;
+            margin-left: 25px;
+        }
+
+        #box_list{
+            position: absolute;
+            width: 100%;
+            top: 120px;
+            left: 35px;
+        }
+
+        .boxeffect{
+            float: left;
+            width: 240px;
+            height: 320px;
+            border-radius: 12px;
+            margin-left: 35px;
+            position: relative;
+            text-decoration: none;
+        }
+        .box {
+            width: 240px;
+            height: 320px;
+            background: #fdfdfd;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+            pointer-events: none;
+            color: #777;
+        }
+
+        .boxeffect:hover>.box{
+            transform: rotateY(360deg);
+        }
+
+        .boxeffect:hover>#samsungbox{
+            background: linear-gradient( -45deg, rgb(230,232,243), rgb(198, 201, 218) );
+            color: rgb(3,78,162);
+        }
+        .boxeffect:hover>#shillabox{
+            background: #3e2b2c;
+            color: white;
+        }
+        .boxeffect:hover>#jejubox{
+            background: #fff; border: 1px solid #aaa;
+            color: rgb(109, 44, 0);
+        }
+        .boxeffect:hover>#wifibox{
+            background: #bfddf3;
+            color: rgb(55, 104, 178);
+        }
+
+        .box img {
+            /* border-radius: 50%; */
+            width: 130px;
+            height: 130px;
+            margin: 30px 0 0 55px;
+        }
+        .box h3{
+            display: block;
+            margin: 20px 0 10px 25px;
+        }
+
+        .box p{
+            display: block;
+            margin: 10px 0 10px 25px;
+        }
+
+        /* 이벤트/혜택 */
+
+        #info {
+            position: relative;
+            width: 1200px;
+            height: 350px;
+            margin: 0 auto;
+
+            
+        }
+
+        #info h2{
+            width: 100%;
+            margin: 60px 0;
+            margin-left: 25px;
+        }
+
+        #info h2:after{
+            content: "";
+            display: block;
+            background: #333;
+            width: 1150px;
+            height: 3px;
+            margin-top: 20px;
+            
+        }
+
+
+        #top_left {
+            position: absolute;
+            width: 190px;
+            height: 200px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-left: 40px;
+            top: 100px;
+            left: 40px;
+        }
+
+        #top_left h1{
+            display: block;
+            font-size: 36px;
+        }
+
+        #top_left a{
+            display: block;
+            text-decoration: none;
+            color: #666;
+            margin: 10px 20px 0 10px;
+            font-size: 18px;
+            
+        }
+
+        #center1 {
+            position: relative;
+            width: 200px;
+            bottom: 11px;
+            left: 380px;
+        }
+
+        #center1 p{
+            font-weight: 600;
+            margin: 5px 0 0 0;
+        }
+        #center1 span{
+            margin-left: 5px;
+            font-size: 13px;
+        }
+
+
+        #center2 {
+            position: absolute;
+            top: 100px;
+            right: 380px;
+        }
+
+        #center2 h3{
+            margin: 5px 0;
+        }
+
+        #right {
+            position: absolute;
+            top: 100px;
+            right: 150px;
+        }
+        
+        #right h3{
+            margin: 5px 0;
+        }
+
+        /* ---------푸터--------------- */
+
+        #footer {
+        position: relative;
+        width: 1200px;
+        height: 350px;
+        margin: 0 auto;
+        overflow: hidden;
+
+    }
+
+    .footer_list{
+        position: absolute;
+        left: 78px;
+    }
+
+    .footer_list li {
+        float: left;
+        margin: 19px 0 0 40px;
+    }
+    
+    .footer_list li a{
+        text-decoration: none;
+        color: #333;
+    }
+
+
+     .top_line{
+        position: absolute;
+        width: 100%;
+        top: 0;
+    }
+
+    .bottom_line{
+        position: absolute;
+        width: 1200px;
+        top: 60px;
+    }
+        
+    #footer_logo{
+        position: absolute;
+        display: block;
+        width: 150px;
+        top: 125px;
+        left: 25px;
+    }
+
+    #footer_logo img{
+        width: 200px;
+        height: 50px;
+        opacity: 0.8;
+    }
+
+
+    #footer_right{
+        position: absolute;
+        top: 80px;
+        right: 35px;
+        width: 890px;
+        font-size: 13px;
+        color: #aaa;
+    }
+
+    #footer_right address{
+        font-style: normal;
+    }
+
+    #footer_right a{
+        text-decoration: none;
+        color: #fff;
+    }
+
+    #footer_right button{
+        width: 110px;
+        background: #333;
+        font-size: 12px;
+    }
+
+</style>
+
+<script>
+    function destcategory(e){
+            var dest1=["괌","사이판","호주","뉴질랜드","시드니","멜버른","골드코스트","브리즈번","오클랜드","퀸스타운","크라이스트처치","로토루아","타히티","팔라우","케언즈"];
+            var dest2=["다낭","보라카이","싱가포르","푸껫","방콕","치앙마이","세부","몰디브","보홀","팔라완","클락","마닐라","푸꾸옥","코사무이","코타키나발루","씨엠립(캄보디아)","나트랑","호치민","하노이","발리","쿠알라룸푸르","델리","라오스","브루나이"];
+            var dest3=["홍콩","타이베이","타이중","가오슝","컨딩","삿포로(홋카이도)","도쿄","오사카","오키나와","후쿠오카(규슈)","나고야(알펜루트)","후라노","시즈오카","요나고","다카마츠","나가사키","가고시마","오카야마"];
+            var dest4=["우즈베키스탄","카자흐스탄","키르기스스탄","블라디보스톡","하바로프스크","이르쿠츠크","하이난(삼아)","하이난(해구)","우루무치","상해","마카오","북경","청도","장가계","서안","백두산","샤먼(하문)","태항산","계림","성도","여강","황산","곤명","중경","귀양","서녕"];
+            var dest5=["서유럽","스페인/포르투갈","튀르키예(터키)","동유럽","북유럽","발칸","그리스/이집트","러시아/발틱","아프리카","런던","바르셀로나","파리","비엔나","니스","이스탄불","취리히","리스본","인터라켄","프라하","로마","아테네","베네치아","마드리드","프랑크푸르트","두바이","오슬로","두브로브니크","부다페스트","브뤼셀","베를린","모스크바","헬싱키","코펜하겐","상트페테르부르크","와디럼","탈린","트빌리시","케이프타운","빅토리아폭포","나이로비","카이로","카사블랑카"];
+            var dest6=["괌","사이판"];
+            var dest7=["호주","뉴질랜드","시드니","멜버른","골드코스트","브리즈번","오클랜드","퀸스타운","크라이스트처치","로토루아","타히티","팔라우","케언즈"];
+            var dest8=["로스앤젤레스","샌프란시스코","라스베이거스","시애틀","그랜드캐년","옐로스톤","뉴욕","워싱턴(DC)","보스톤","필라델피아","텍사스","뉴올리언스","벤쿠버","밴프(로키)","나이아가라","토론토","퀘벡","옐로나이프"];
+            var dest9=["호놀룰루","마우이","빅아일랜드","카우아이","칸쿤","페루","브라질","칠레","아르헨티나","남극"];
+            var dest10=["제주도","울릉도","부산","강원도","서울","경상북도","경상남도","전라북도","전라남도","충청북도","충청남도","인천"];
+
+            var target=document.getElementById("dests");
+
+            if(e.value == "1") var d = dest1;
+            else if(e.value == "2") var d = dest2;
+            else if(e.value == "3") var d = dest3;
+            else if(e.value == "4") var d = dest4;
+            else if(e.value == "5") var d = dest5;
+            else if(e.value == "6") var d = dest6;
+            else if(e.value == "7") var d = dest7;
+            else if(e.value == "8") var d = dest8;
+            else if(e.value == "9") var d = dest9;
+            else if(e.value == "10") var d = dest10;
+
+            target.options.length=0;
+
+            for(x in d){
+                var opt=document.createElement("option");
+                opt.value=d[x];
+                opt.innerHTML=d[x];
+                target.appendChild(opt);
+            }
+        }
+
+        function airportcategory(e){
+            var dest1=["제주","부산","김포","인천","광주","양양","여수","포항","울산","군산","원주","대구","청주","무안","진주"];
+            var dest2=["방콕","방콕(돈무앙)","대만","마닐라","싱가포르","세부","호치민","푸껫","하노이","보라카이","발리","코타키나발루","클락","프놈펜","자카르타","시엠립","비엔티안","쿠알라룸푸르","나트랑","카우슝","타이중","치앙마이","양곤","하이퐁","푸에르토 프린세사","푸꾸옥","다낭","보홀","화련"];
+            var dest3=["오사카","도쿄(나리타)","후쿠오카","도쿄(하네다)","오키나와","삿포로","나고야","나가사키","히로시마","가고시마","요나고","미야자키","도야마","시즈오카","센다이","사가","오이타","쿠마모토","기타큐슈","타카마츠","아사히카와","아오모리","고마쓰","니가타","이바라키"];
+            var dest4=["홍콩","상해(푸동)","상해(홍교)","청도","북경","마카오","연길","광저우","심양","대련","천진","위해","항저우","하얼빈","장춘","심천","연태","목단강","남경","서안","성도","곤명","하문","제남","울란바토르","장사","중경","무한","영파"];
+            var dest5=["로마","파리","런던","바르셀로나","프랑크프루트","프라하","이스탄불","마드리드","베네치아(베니스)","취리히","자그레브","밀라노","아테네","부다페스트","암스테르담","베를린","블라디보스톡","비안네(빈)","헬싱키","바르샤바","하바로프스크","모스크바","브뤼셀","타슈켄트","알마티","유즈노사할린스크","누르술탄","트빌리시"];
+            var dest6=["호놀룰루","로스엔젤레스","뉴욕(존 에프 케네디)","샌프란시스코","시애틀","라스베이거스","뉴욕(뉴왁)","뉴욕(라과디아)","시카고","워싱턴","애틀란타","보스톤","댈러스","올랜도","디트로이트","미니애폴리스"];
+            var dest7=["괌","시드니","사이판","오클랜드","멜버른","팔라우","브리즈번","퍼스","아들레이드","크라이스트처치","케언즈","골드코스트"];
+            var dest8=["벤쿠버","토론토","캘거리","에드몬튼","몬트리올","옐로나이프","화이트홀스","빅토리아","위니펙","퀘벡","샤를롯타운","헬리팩스"];
+            var dest9=["몰디브","카트만두","델리","콜롬보","다카","뭄바이","첸나이","방갈로"];
+            var dest10=["상파울로","칸쿤","리마","부에노스아이레스","멕시코시티","산티아고","보고타","과테말라시티","리우데자네이루","키토","하바나"];
+            var dest11=["두바이","텔아비브","아부다비","테헤란","도하"];
+            var dest12=["케이프타운","요하네스버그","나이로비","몰타","아크라"];
+
+            var chack=document.getElementById("airport1");
+            if(e == chack){
+                var target=document.getElementById("airports1");
+            }
+            else {
+                var target=document.getElementById("airports2");
+            }
+
+            if(e.value == "1") var d = dest1;
+            else if(e.value == "2") var d = dest2;
+            else if(e.value == "3") var d = dest3;
+            else if(e.value == "4") var d = dest4;
+            else if(e.value == "5") var d = dest5;
+            else if(e.value == "6") var d = dest6;
+            else if(e.value == "7") var d = dest7;
+            else if(e.value == "8") var d = dest8;
+            else if(e.value == "9") var d = dest9;
+            else if(e.value == "10") var d = dest10;
+            else if(e.value == "11") var d = dest11;
+            else if(e.value == "12") var d = dest12;
+
+            target.options.length=0;
+
+            for(x in d){
+                var opt=document.createElement("option");
+                opt.value=d[x];
+                opt.innerHTML=d[x];
+                target.appendChild(opt);
+            }
+        }
+        
+        function hotelcategory(e){
+            var dest1=["괌","사이판","시드니","멜버른","브리즈번","골드코스트","케언즈","오클랜드","퀸스타운","누메아","퍼스","호바트","팔라우"];
+            var dest2=["방콕","푸껫","다낭","나트랑","발리","싱가포르","코타키나발루","세부","보라카이","마닐라","하노이","호치민","푸꾸옥","치앙마이","방비엥","루앙프라방","비엔티안","파타야","몰디브"];
+            var dest3=["호놀룰루(하와이)","마우이(하와이)","LA","칸쿤","뉴욕","라스베가스","샌프란시스코","시애틀","벤쿠버","토론토","워싱턴","시카고","코나","카우아이"];
+            var dest4=["바르셀로나","마드리드","로마","피렌체","베니스","밀라노","프랑크푸르트","파리","런전","프라하","비엔나","부다페스트","인터라켄"];
+            var dest5=["도쿄","오사카","후쿠오카","오키나와","삿포로","교토","나고야","유후인","하코네","노보리베츠","가고시마"];
+            var dest6=["홍콩","마카오","북경","상해","청도","광저우","심천","하이난","서안","대련","위해","성도","천진","울란바토르","타이베이","가오슝"];
+            var dest7=["두바이","아부다비","카이로","요하네스버그","케이프타운"];
+            var dest8=["제주","부산","서울","강원","충정","인천","경기","경상","전라"];
+
+
+            var target=document.getElementById("hoteldests");
+
+            if(e.value == "1") var d = dest1;
+            else if(e.value == "2") var d = dest2;
+            else if(e.value == "3") var d = dest3;
+            else if(e.value == "4") var d = dest4;
+            else if(e.value == "5") var d = dest5;
+            else if(e.value == "6") var d = dest6;
+            else if(e.value == "7") var d = dest7;
+            else if(e.value == "8") var d = dest8;
+            else if(e.value == "9") var d = dest9;
+            else if(e.value == "10") var d = dest10;
+
+            target.options.length=0;
+
+            for(x in d){
+                var opt=document.createElement("option");
+                opt.value=d[x];
+                opt.innerHTML=d[x];
+                target.appendChild(opt);
+            }
+        }
+
+        function seatclick(ad,ki,ba){
+            var target=document.getElementById("seatbtn");
+
+            target.value="";
+            if(ad > 0) target.value =" 성인"+ad+"명 /";
+            if(ki > 0) target.value = target.value+" 소아"+ki+"명 /";
+            if(ba > 0) target.value = target.value+" 유아"+ba+"명 /";
+
+            var lv = document.getElementsByName('seatlv');
+            var ra = Array.from(lv).find(radio => radio.checked);
+            if(ra.value == "normal") target.value= target.value+" 일반석";
+            else if(ra.value == "premium") target.value= target.value+" 프리미엄 일반석";
+            else if(ra.value == "business") target.value= target.value+" 비즈니스석";
+            else if(ra.value == "first") target.value= target.value+" 일등석";
+
+            if( parseInt(ad)+parseInt(ki)+parseInt(ba) > 9 ){
+                alert('예약 가능 최대 인원은 9명입니다.');
+                target.value=" 성인1명 / 일반석";
+            }
+            else if(ba>ad){
+                alert('유아는 성인 인원 내에서 선택 가능합니다.');
+                target.value=" 성인1명 / 일반석";
+            }
+        }
+
+        function roomclick(room,roomad,roomki){
+            var target=document.getElementById("roombtn");
+
+            target.value="";
+            if(room > 0) target.value =" 객실"+room+" /";
+            if(roomad > 0) target.value = target.value+" 성인"+roomad+"명 /";
+            if(roomki > 0) target.value = target.value+" 아동"+roomki+"명 /";
+
+        }
+</script>
+
+<body>
+    <section id="content1">
+        <div id="insidebox">
+            <h1>어디로 떠나고 싶으신가요?</h1>
+            <ul>
+                <li>
+                    <input type="radio" name="inside" id="pak" checked>
+                    <label for="pak">패키지</label>
+                    <div class="insidecontent">
+                        <select name="pakdest" id="pakdest" onchange="destcategory(this)">
+                            <option disabled selected>어디로</option>
+                            <option value="1">지금여행가능</option>
+                            <option value="2">동남아/서남아</option>
+                            <option value="3">홍콩/대만/일본</option>
+                            <option value="4">중국/중앙아시아</option>
+                            <option value="5">유럽/아프리카</option>
+                            <option value="6">괌/사이판</option>
+                            <option value="7">호주/뉴질랜드</option>
+                            <option value="8">미국/캐나다</option>
+                            <option value="9">하와이/중남미</option>
+                            <option value="10">국내</option>
+                        </select>
+                        <select name="dests" id="dests">
+                            <option>떠나시나요?</option>
+                        </select>
+                        <input type="date" name="goday" id="goday" placeholder="출발예정일">
+                        <input type="button" value="패키지 검색하기" id="searchbtn">
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="inside" id="air">
+                    <label for="air">항공</label>
+                    <div class="insidecontent">
+
+                        <div id="airtickets">
+                            
+                            <input type="radio" name="airticket" id="shuttle" checked>
+                            <label for="shuttle">왕복</label>
+                            <div id="shuttledate">
+                                <input type="date" id="go">
+                                <p><i class="fa-solid fa-arrow-up-long"></i><i class="fa-solid fa-arrow-down-long"></i></p>
+                                <input type="date" id="come">
+                            </div>
+                            <input type="radio" name="airticket" id="single">
+                            <label for="single">편도</label>
+                            <div id="singledate">
+                                <input type="date" id="goaway">
+                            </div>
+                        </div>
+                        
+                        <div id="start">
+                            <select name="airport1" class="airportsel" id="airport1" onchange="airportcategory(this)">
+                                <option>출발</option>
+                                <option value="1">국내</option>
+                                <option value="2">동남아</option>
+                                <option value="3">일본</option>
+                                <option value="4">중국</option>
+                                <option value="5">유럽</option>
+                                <option value="6">미주</option>
+                                <option value="7">대양주</option>
+                                <option value="8">캐나다</option>
+                                <option value="9">서남아</option>
+                                <option value="10">중남미</option>
+                                <option value="11">중동</option>
+                                <option value="12">아프리카</option>
+                            </select>
+                            <select name="airports1" id="airports1" class="airportssel">
+                                <option>지역</option>
+                            </select>
+                            <p><i class="fa-solid fa-arrow-up-long"></i><i class="fa-solid fa-arrow-down-long"></i></p>
+                        </div>
+                        <div id="end">
+                            <select name="airport2" class="airportsel" id="airport2" onchange="airportcategory(this)">
+                                <option>도착</option>
+                                <option value="1">국내</option>
+                                <option value="2">동남아</option>
+                                <option value="3">일본</option>
+                                <option value="4">중국</option>
+                                <option value="5">유럽</option>
+                                <option value="6">미주</option>
+                                <option value="7">대양주</option>
+                                <option value="8">캐나다</option>
+                                <option value="9">서남아</option>
+                                <option value="10">중남미</option>
+                                <option value="11">중동</option>
+                                <option value="12">아프리카</option>
+                            </select>
+                            <select name="airports2" id="airports2" class="airportssel">
+                                <option>지역</option>
+                            </select>
+                        </div>
+
+                        <div id="seat">
+                            <input type="button" id="seatbtn" value=" 성인1명 / 일반석">
+                            <div id="seatbox">
+                                <h2>인원</h2>
+                                <p>예약 가능 최대 인원은 9명이며,<br>유아는 성인 인원 내에서 선택 가능합니다.
+                                <br>소아 : 만 2세~12세미만
+                                <br>유아 : 만 2세 미만</p>
+
+                                <div>
+                                    <label for="adult">성인</label>
+                                    <input type="number" id="adult" value="1" min="1" max="9">
+                                </div>
+                                <div>
+                                    <label for="kid">소아</label>
+                                    <input type="number" id="kid" value="0" min="0" max="9">
+                                </div>
+                                <div>
+                                    <label for="baby">유아</label>
+                                    <input type="number" id="baby" value="0" min="0" max="9">
+                                </div>
+                                
+                                <div>
+                                    <input type="radio" name="seatlv" id="normal" value="normal" checked>
+                                    <label for="normal">일반석</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="seatlv" id="premium" value="premium">
+                                    <label for="premium">프리미엄 일반석</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="seatlv" id="business" value="business">
+                                    <label for="business">비즈니스석</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="seatlv" id="first" value="first">
+                                    <label for="first">일등석</label>
+                                </div>
+                                <input type="button" value="선택" onclick="seatclick(adult.value,kid.value,baby.value)">
+                            </div>
+                        </div>
+
+                        <input type="button" value="항공권 검색" id="airbtn">
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="inside" id="hotel" >
+                    <label for="hotel">호텔</label>
+                    <div class="insidecontent">
+                        <select name="hoteldest" id="hoteldest" onchange="hotelcategory(this)">
+                            <option disabled selected>어디로</option>
+                            <option value="1">남태평양</option>
+                            <option value="2">동남아</option>
+                            <option value="3">미주</option>
+                            <option value="4">유럽</option>
+                            <option value="5">일본</option>
+                            <option value="6">중국</option>
+                            <option value="7">중동/아프리카</option>
+                            <option value="8">국내</option>
+                        </select>
+                        <select name="hoteldests" id="hoteldests">
+                            <option>떠나시나요?</option>
+                        </select>
+                        <div id="hoteldate">
+                            <input type="date" id="staystart">
+                            <p>~</p>
+                            <input type="date" id="stayend">
+                        </div>
+                        <div id="room">
+                            <input type="button" id="roombtn" value=" 객실1 / 성인1명">
+                            <div id="roombox">
+                                <div>
+                                    <label for="rooms">객실</label>
+                                    <input type="number" id="rooms" value="1" min="1" max="9">
+                                </div>
+                                <div>
+                                    <label for="adult">성인</label>
+                                    <input type="number" id="roomadult" value="1" min="1" max="9">
+                                </div>
+                                <div>
+                                    <label for="kid">아동</label>
+                                    <input type="number" id="roomkid" value="0" min="0" max="9">
+                                </div>
+                                <p>아동: 0세~만17세이하.</p>
+                                
+                                <input type="button" value="선택" onclick="roomclick(rooms.value,roomadult.value,roomkid.value)">
+                            </div>
+                        </div>
+                        <input type="button" value="숙소 검색" id="hotelbtn">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section>
+
+        <div id="thema">
+
+            <div class="thema_title">
+                <h3>휴식의 시간, 너와 나의 여행</h3>
+                <h2>마이투어 테마여행</h2>
+            </div>
+
+            <div id="img_list">
+                <div class="text-om-img">
+                    <a href="#" class="background-wrap">
+                        <div class="content">
+                            <span>나 홀로 떠나는 여행</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-om-img">
+                    <a href="#" class="background-wrap2">
+                        <div class="content">
+                            <span>함께하는 여행</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-om-img">
+                    <a href="#" class="background-wrap3">
+                        <div class="content">
+                            <span>허니문</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-om-img">
+                    <a href="#" class="background-wrap4">
+                        <div class="content">
+                            <span>골프/레저</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="sale">
+            <!-- 할인투어 영역 -->
+            <div class="sale_title">
+                <h2>저렴하게 떠나요, 할인투어!</h2>
+            </div>  
+
+            <ul class="sale_list">
+                <li><a href="#">
+                    <img src="img/singa.jpg" alt="싱가포르 자유여행">
+                    <strong>싱가포르 자유여행 5일</strong>
+                    <p>#여행자보험#왕복항공권#라운지이용#데이터유심#공항 식사권</p>
+                    <p style="font-size: 20px; font-weight: 600">333,000원 ~</p></a>
+                </li>
+
+                <li><a href="#">
+                    <img src="img/danang1.jpg" alt="다낭 5, 6일">
+                    <strong>[타임세일] 다낭 5,6일 </strong>
+                    <p>#아오자이 입고 호이안 산책#바나산#호이안투어#마사지1시간#쇼핑3회</p>
+                    <p style="font-size: 20px; font-weight: 600">349,900원 ~</p></a>
+                </li>
+
+                <li><a href="#">
+                    <img src="img/osaka.jpg" alt="오사카/고베 3일">
+                    <strong>[4명이상 출발] 오사카/고베 3일</strong>
+                    <p>#1일자유#난바시내호텔#가성비추천</p>
+                    <p style="font-size: 20px; font-weight: 600">389,900원 ~</p></a>
+                </li>
+
+                <li><a href="#">
+                    <img src="img/borakay.jpg" alt="보라카이 4일, 5일">
+                    <strong>보라카이 4일, 5일</strong>
+                    <p>#전신마사지#세일링보트 #디몰투어#특식2회</p>
+                    <p style="font-size: 20px; font-weight: 600">590,000원 ~</p></a>
+                </li>
+             </ul>
+    </div>
+
+
+        <div id="covid">
+            <div class="covid_title">
+                <div class="covid_bg">
+                    <h2>입국 전 코로나 검사 폐지!<br>
+                    접종 후 갈 수 있는 여행지</h2>
+
+                    <div class="tabs">  
+                        
+                            <input id="japan" class="btn" type="radio" name="tab_item" checked>
+                            <label for="japan">
+                            <span>일본여행 특가모음</span>
+                            </label>
+                        
+                            <div id="japan_list">
+                                <div class="tab_content" id="japan">
+                                    <a href="#"><img src="img/osaka2.jpg" alt="오사카 3일 #엑셀도큐호텔">
+                                    <!-- <p style="color: #49bed3; font-size: 12px; font-weight: 600;">&nbsp;</p> -->
+                                    <strong>오사카 3일 #엑셀도큐호텔</strong>
+                                    <p>#왕복항공권 #여행자보험 #어시스트 카드 #시내중심호텔</p>
+                                    <p style="font-size: 20px; font-weight: 600">339,000원 ~</p></a>
+                                </div>
+        
+                                <div class="tab_content" id="japan">
+                                    <a href="#"><img src="img/dokyo.jpg" alt="도쿄 3일 #1일자유 #우에노숙박">
+                                    <!-- <p style="color: #49bed3; font-size: 12px; font-weight: 600;">&nbsp;</p> -->
+                                    <strong>도쿄 3일 #1일자유 #우에노숙박</strong>
+                                    <p>#왕복항공권 #여행자보험 #어시스트 카드 #시내중심호텔</p>
+                                    <p style="font-size: 20px; font-weight: 600">339,000원 ~</p></a>
+                                </div>
+                                
+                                <div class="tab_content" id="japan">
+                                    <a href="#"><img src="img/gyusyu.jpg" alt="규슈 3일 #캐널시티워싱턴호텔">
+                                    <!-- <p style="color: #49bed3; font-size: 12px; font-weight: 600;">&nbsp;</p> -->
+                                    <strong>규슈 3일 #캐널시티워싱턴호텔</strong>
+                                    <p>#왕복항공권 #여행자보험 #어시스트 카드 #후쿠오카시내3박</p>
+                                    <p style="font-size: 20px; font-weight: 600">449,900원 ~</p></a>
+                                </div>
+                                <!-- 일본여행 탭 -->
+                            </div>
+
+
+
+                            <input id="Europe" class="btn" type="radio" name="tab_item">
+                            <label for="Europe">
+                            <span>지금 인기있는 유럽</span>
+                        </label>
+
+                        <div id="Europe_list">
+                            <div class="tab_content" id="Europe">
+                                <a href="#"><img src="img/Europe001.jpg" alt="산토리니/아테네 7일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">패키지</p>
+                                <strong>산토리니/아테네 7일</strong>
+                                <p>#왕복항공권 #여행자보험 #어시스트 카드 #프라이빗 요트 #럭셔리풀빌라</p>
+                                <p style="font-size: 20px; font-weight: 600">17,800,000원 ~</p></a>
+                            </div>
+
+
+                            <div class="tab_content" id="Europe">
+                                <a href="#"><img src="img/Europe2.jpg" alt="스위스/이탈리아 9일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">패키지</p>
+                                <strong>스위스/이탈리아 9일</strong>
+                                <p>#나폼소 #피렌체 #베네치아 #스위스 여왕의 산 리기</p>
+                                <p style="font-size: 20px; font-weight: 600">2,199,000원 ~</p></a>
+                            </div>
+
+                            <div class="tab_content" id="Europe">
+                                <a href="#"><img src="img/Europe3.jpg" alt="스페인 일주 9일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">패키지</p>
+                                <strong>스페인 일주 9일</strong>
+                                <p>#5성1박 #전일정4성호텔 #마드리드시내호텔1박 #루프탑레스토랑</p>
+                                <p style="font-size: 20px; font-weight: 600">2,199,000원 ~</p></a>
+                            </div>
+                            <!-- 유럽여행 탭 -->
+                        </div>
+
+
+
+                            <input id="hawaii" class="btn" type="radio" name="tab_item">
+                            <label for="hawaii">
+                            <span>알로하~ 하와이 어때요?</span>
+                        </label>
+
+                        <div id="hawaii_list">
+                            <div class="tab_content" id="Hawaii">
+                                <a href="#"><img src="img/hawaii3.jpg" alt="호놀룰루 5일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">투어텔</p>
+                                <strong>호놀룰루 5일</strong>
+                                <p>#여행자보험 #어시스트 카드 #오아후섬투어 #공항호텔셔틀포함</p>
+                                <p style="font-size: 20px; font-weight: 600">1,120,000원 ~</p></a>
+                            </div>
+    
+    
+                            <div class="tab_content" id="Hawaii">
+                                <a href="#"><img src="img/hawaii2.jpg" alt="하와이 자유여행 6일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">에어텔</p>
+                                <strong>하와이 자유여행 6일</strong>
+                                <p>#여행자보험 #어시스트 카드 #힐튼하와이안빌리지 #공항호텔셔틀포함</p>
+                                <p style="font-size: 20px; font-weight: 600">3,162,400원 ~</p></a>
+                            </div>
+    
+                            <div class="tab_content" id="Hawaii">
+                                <a><img src="img/hawaii.jpg" alt="하와이 허니문 8일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">허니문</p>
+                                <strong>하와이 허니문 8일</strong>
+                                <p>#여행자보험 #어시스트 카드 #하얏트리젠시 #특급호텔 #허니문</p>
+                                <p style="font-size: 20px; font-weight: 600">4,682,400원 ~</p></a>
+                            </div>
+                            <!-- 하와이 탭 -->
+                        </div>
+
+
+                                <input id="Turkiye" class="btn" type="radio" name="tab_item">
+                                <label for="Turkiye">
+                                <span>새로운 시작, 튀르키예</span>
+                        </label> 
+                        
+                        <div id="Turkiye_list">
+                            <div class="tab_content" id="Turkiye">
+                                <a href="#"><img src="img/Turkiye.jpg" alt="튀르키예(터키) 일주 9일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">패키지</p>
+                                <strong>튀르키예(터키) 일주 9일</strong>
+                                <p>#이스탄불 시내 호텔1박 #루프탑&해안절벽 레스토랑 #월드체인호텔3박</p>
+                                <p style="font-size: 20px; font-weight: 600">3,331,400원 ~</p></a>
+                            </div>
+
+                            <div class="tab_content" id="Turkiye">
+                                <a href="#"><img src="img/Turkiye2.jpg" alt="튀르키예(터키) 일주 9일">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">패키지</p>
+                                <strong>그리스/튀르키예(터키) 10일</strong>
+                                <p>#항공이동3회 #아테네/안탈리아 시내호텔 #동굴호텔 #메테오라 수도원</p>
+                                <p style="font-size: 20px; font-weight: 600">3,499,000원 ~</p></a>
+                            </div>
+
+                            <div class="tab_content" id="Turkiye">
+                                <a href="#"><img src="img/Turkiye3.jpg" alt="튀르키예 가성비 여행">
+                                <p style="color: #49bed3; font-size: 12px; font-weight: 600;">패키지</p>
+                                <strong>튀르키예 가성비 여행</strong>
+                                <p>#가성비여행#터키국내선1회#현지특식6회#괴레메야외박물관</p>
+                                <p style="font-size: 20px; font-weight: 600">2,082,600원 ~</p></a>
+                            </div>
+                            <!-- 튀르키예 탭 -->
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="recommend">
+            <!-- 추천투어 영역 -->
+            <div class="recommend_title">
+                <h2>나를 위한 여행, 추천투어</h2>
+            </div>  
+
+            <div id="slide">
+                <ul class="recommend_list">
+                    <li><a href="#">
+                        <img src="img/recommend001.jpg" alt="영국 일주 9~11일">
+                        <strong>영국 일주 9~11일</strong>
+                        <p>#영국#예술#잉글랜드#스코틀랜드#영국일주</p>
+                        <p style="font-size: 20px; font-weight: 600">4,809,000원 ~</p></a>
+                    </li>
+
+                    <li><a href="#">
+                        <img src="img/recommend002.jpg" alt="우즈베키스탄 5,6일">
+                        <strong>우즈베키스탄 5,6일</strong>
+                        <p>#실크로드#고대도시#부하라#사마르칸트</p>
+                        <p style="font-size: 20px; font-weight: 600">1,949,900원 ~</p></a>
+                    </li>
+
+                    <li><a href="#">
+                        <img src="img/recommend003.jpg" alt="서유럽 3국">
+                        <strong>서유럽 3국</strong>
+                        <p>#프랑스#스위스#이탈리아#유럽대표#얼리버드</p>
+                        <p style="font-size: 20px; font-weight: 600">1,119,900원 ~</p></a>
+                    </li>
+
+                    <li><a href="#">
+                        <img src="img/recommend004.jpg" alt="스페인/포르투갈/모로코 일주">
+                        <strong>스페인/포르투갈/모로코 일주 12일</strong>
+                        <p>#스테디셀러#다개국여행#지중해완전정복</p>
+                        <p style="font-size: 20px; font-weight: 600">590,000원 ~</p></a>
+                    </li>
+                 </ul>
+                 
+                 <button class="back"><i class="fa-solid fa-chevron-left"></i></button>
+                 <button class="next"><i class="fa-solid fa-angle-right"></i></button>
+
+            </div>
+
+        </div>
+
+        <div id="starting">
+
+            <div id="starting_tab">
+
+                <div class="starting_title">
+                    <h2>빠르게 떠나요, 출발임박 투어</h2>
+                </div>
+
+
+                    <input id="starting_001" class="btn" type="radio" name="tab2_item" checked>
+                    <label for="starting_001">
+                        <p style="font-size: 24px;">9월 6일</p>
+                        <p>화요일</p>
+                    </label>
+
+                    <ul class="starting_list" id="starting_list_001">
+                        <li><a href="#">
+                            <img src="img/starting_001.jpg" alt="서유럽 6국 12일">
+                            <strong>서유럽 6국 12일</strong>
+                            <p>#영국#프랑스#스위스#이탈리아#독일#오스트리아</p>
+                            <p style="font-size: 20px; font-weight: 600">4,699,000원 ~</p></a>
+                        </li>
+
+                        <li><a href="#">
+                            <img src="img/starting_002.jpg" alt="세부 4~6일">
+                            <strong>세부 4~6일</strong>
+                            <p>#샹그릴라리조트#디럭스룸#스테디셀러#단거리세부여행</p>
+                            <p style="font-size: 20px; font-weight: 600">936,000원 ~</p></a>
+                        </li>
+
+                        <li><a href="#">
+                            <img src="img/starting_003.jpg" alt="쿠알라룸푸르 자유여행 5일">
+                            <strong>쿠알라룸푸르 자유여행 5일</strong>
+                            <p>#나만의여행#자유여행#에어텔#쿠알라룸푸르<br></p>
+                            <p style="font-size: 20px; font-weight: 600">1,483,200원 ~</p></a>
+                        </li>
+
+                        <li><a href="#">
+                            <img src="img/starting_004.jpg" alt="프라하/파리 8일">
+                            <strong>프라하/파리 8일</strong>
+                            <p>#프라하#체스키크롬로프#파리#자유여행#에어텔</p>
+                            <p style="font-size: 20px; font-weight: 600">2,194,200원 ~</p></a>
+                        </li>
+                    </ul>
+                    <!--  -->
+
+                    <input id="starting_002" class="btn" type="radio" name="tab2_item">
+                        <label for="starting_002">
+                            <p style="font-size: 24px;">9월 7일</p>
+                            <p>수요일</p>
+                        </label>
+    
+                        <ul class="starting_list" id="starting_list_002">
+                            <li><a href="#">
+                                <img src="img/starting_005.jpg" alt="파리/스위스 8일">
+                                <strong>파리/스위스 8일</strong>
+                                <p>#전망대#알프스#비즈니스석#상쾌한풍경#로맨틱</p>
+                                <p style="font-size: 20px; font-weight: 600">15,700,000원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_006.jpg" alt="런던/파리 7일">
+                                <strong>런던/파리 7일</strong>
+                                <p>#프랑스#영국#비즈니스석#클래식#맞춤여행</p>
+                                <p style="font-size: 20px; font-weight: 600">14,900,000원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_007.jpg" alt="괌 4~6일">
+                                <strong>괌 4~6일</strong>
+                                <p>#두짓타니리조트#투몬시내중심#오션뷰#미니바</p>
+                                <p style="font-size: 20px; font-weight: 600">1,219,000원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_008.jpg" alt="하노이/하롱베이 5일">
+                                <strong>하노이/하롱베이</strong>
+                                <p>#가성비#실속있게#핵심관광#초특가#수상인형극#씨푸드특식</p>
+                                <p style="font-size: 20px; font-weight: 600">349,900원 ~</p></a>
+                            </li>
+                        </ul>
+
+                    <!--  -->
+
+                        <input id="starting_003" class="btn" type="radio" name="tab2_item">
+                        <label for="starting_003">
+                            <p style="font-size: 24px;">9월 8일</p>
+                            <p>목요일</p>
+                        </label>
+    
+                        <ul class="starting_list" id="starting_list_003">
+                            <li><a href="#">
+                                <img src="img/starting_009.jpg" alt="발리 자유여행 5~6일">
+                                <strong>발리 자유여행 5~6일</strong>
+                                <p>#특급인기리조트#항공+호텔#베스트셀러#락바#미팅서비스</p>
+                                <p style="font-size: 20px; font-weight: 600">1,457,900원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_010.jpg" alt="시드니/멜버른/골드코스트 9일">
+                                <strong>시드니/멜버른/골드코스트 9일</strong>
+                                <p>#호주인기도시항공일주#호주여행마스터#오페라하우스 내부관람</p>
+                                <p style="font-size: 20px; font-weight: 600">3,389,000원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_011.jpg" alt="동유럽 4국">
+                                <strong>동유럽 4국</strong>
+                                <p>#독일#오스트리아#체코#헝가리#스테디셀러#시내호텔</p>
+                                <p style="font-size: 20px; font-weight: 600">2,990,000원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_012.jpg" alt="미동부 8일~10일">
+                                <strong>미동부 8일~10일</strong>
+                                <p>#아이비리그탐방#재학생투어#자유상유람선#프리덤 타워</p>
+                                <p style="font-size: 20px; font-weight: 600">5,190,000원 ~</p></a>
+                            </li>
+                        </ul>
+
+                    <!--  -->
+
+                    <input id="starting_004" class="btn" type="radio" name="tab2_item">
+                    <label for="starting_004">
+                        <p style="font-size: 24px;">9월 9일</p>
+                        <p>금요일</p>
+                    </label>
+    
+                    <ul class="starting_list" id="starting_list_004">
+                        <li><a href="#">
+                            <img src="img/starting_013.jpg" alt="홍콩 3~4일">
+                            <strong>홍콩 3~4일</strong>
+                            <p>#관광은핵심만#하루만에끝내기#시내호텔#공항미팅</p>
+                            <p style="font-size: 20px; font-weight: 600">909,000원 ~</p></a>
+                        </li>
+    
+                        <li><a href="#">
+                            <img src="img/starting_014.jpg" alt="미동부/캐나다 10일">
+                            <strong>미동부/캐나다 10일</strong>
+                            <p>#스테디셀러#가성비#3대유람선#나이아가라폭포</p>
+                            <p style="font-size: 20px; font-weight: 600">4,790,000원 ~</p></a>
+                        </li>
+    
+                        <li><a href="#">
+                            <img src="img/starting_015.jpg" alt="오사카 자유여행 3~4일">
+                            <strong>오사카 자유여행 3~4일</strong>
+                            <p>#난바비즈니스급호텔#항공+호텔#오사카에어텔</p>
+                            <p style="font-size: 20px; font-weight: 600">399,900원 ~</p></a>
+                        </li>
+    
+                        <li><a href="#">
+                            <img src="img/starting_016.jpg" alt="괌 4,5일">
+                            <strong>[부산출발] 괌 4,5일</strong>
+                            <p>#두짓타니리조트#미니바무료#에메랄드벨리</p>
+                            <p style="font-size: 20px; font-weight: 600">1,100,000원 ~</p></a>
+                        </li>
+                        </ul>
+
+                        <!--  -->
+
+                        <input id="starting_005" class="btn" type="radio" name="tab2_item">
+                        <label for="starting_005">
+                            <p style="font-size: 24px;">9월 10일</p>
+                            <p>토요일</p>
+                        </label>
+        
+                        <ul class="starting_list" id="starting_list_005">
+                            <li><a href="#">
+                                <img src="img/starting_017.jpg" alt="키르기스스탄 6~9일">
+                                <strong>키르기스스탄 6~9일</strong>
+                                <p>#1국여행#글램핑&별감상#노천온천#승마체험</p>
+                                <p style="font-size: 20px; font-weight: 600">2,349,000원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_018.jpg" alt="캐나다 서부 동부 10일">
+                                <strong>캐나다 서부 동부 10일</strong>
+                                <p>#나이아가라#폭포뷰호텔#베스트셀러#프리미엄#항공일주#퀘벡숙박</p>
+                                <p style="font-size: 20px; font-weight: 600">5,411,600원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_019.jpg" alt="방콕/파타야 5일,6일">
+                                <strong>방콕/파타야 5일,6일</strong>
+                                <p>#5성호텔#니모섬스노클링#파타야쇼#첫여행추천</p>
+                                <p style="font-size: 20px; font-weight: 600">889,000원 ~</p></a>
+                            </li>
+        
+                            <li><a href="#">
+                                <img src="img/starting_020.jpg" alt="다낭/호이안 6일">
+                                <strong>다낭/호이안 6일</strong>
+                                <p>#바나산#전통마사지#하루자유시간#시내4성호텔</p>
+                                <p style="font-size: 20px; font-weight: 600">349,000원 ~</p></a>
+                            </li>
+                        </ul>
+
+             </div>
+        </div>
+
+        
+
+
+        <div id="event">
+            <h2>이벤트/결제 혜택</h2>
+            <div id="box_list">
+
+                <a href="" class="boxeffect">
+                    <div class="box" id="samsungbox">
+                        <img src="img/samsung.png" alt="삼성카드">
+                        <h3>삼성카드<br> 결제시 10% 캐시백</h3>
+                        <p> 삼성카드 <br> 신규가입 혜택</p>
+                    </div>
+                </a>
+                <a href="" class="boxeffect">
+                    <div class="box" id="shillabox">
+                        <img style="border-radius: 50%;" src="img/shilla.png" alt="신라면세점" >
+                        <h3>바로받는<br>명품 쇼핑</h3>
+                        <p>신라면세점<br>할인 혜택</p>
+                    </div>
+                </a>
+
+                <a href="" class="boxeffect">
+                    <div class="box" id="jejubox">
+                        <img style="border-radius: 50% ;" src="img/jeju.jpg" alt="할인쿠폰&사은품">
+                        <h3>할인쿠폰 &<br>사은품 증정</h3>
+                        <p> 제주중문<br>면세점 혜택</p>
+                    </div>
+                </a>
+                <a href="" class="boxeffect">
+                    <div class="box" id="wifibox">
+                        <img src="img/wifi.png" alt="와이파이">
+                        <h3>와이파이 5%<br>추가할인</h3>
+                        <p>와이파이<br>도시락 혜택</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        <div id="info" >
+            <h2>마이투어 고객센터</h2>
+            <!-- <hr style="width:100%; ;height:2px;border:none;background-color:black;"> -->
+
+
+
+            <div id="top_left">
+                <h1>1588-1234</h1>
+                <a href="#">ARS 상담안내 ></a>
+                <a href="#">자주 묻는 질문 ></a>
+            </div>
+
+        <div id="info_wrap">
+                <div id="center1">
+                    <p>1번여행상담</p>
+                        <span>① 해외여행 ② 국내여행</span>
+                        <br>
+                    <p>2번항공권</p>
+                        <span>① 해외항공 ② 국내항공</span>
+                        <br>
+                    <p>3번호텔,현지투어,패스문의</p>
+                        <span>① 해외호텔 ② 국내호텔</span><br>
+                        <span>③ 현지투어,패스</span>
+                </div>
+
+                <div id="center2">
+                    <h3>해외여행 문의</h3>
+                    <span style="font-size: 14px;">평일 : 09:00 ~ 18:00</span>
+                    <h3>해외항공권 문의</h3>
+                    <p style="font-weight:600 ;">1588-1223</p>
+                    <p style="font-size: 14px;">평일 : 09:00 ~ 18:00</p>
+                </div>
+
+                <div id="right">
+                    <h3>기업/단체여행<br>법인회원 문의</h3>
+                    <p style="font-weight:600 ;">1588-1245</p>
+                    <p style="font-size: 14px;">평일 : 09:00 ~ 18:00</p>
+                </div>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+        <div id="footer">
+            
+                <hr class="top_line"> 
+            <ul class="footer_list">
+                <li><a href="#">회사소개</a></li>
+                <li style="font-weight: 600;"><a href="#">개인정보 처리방침<a href="#"></a></li>
+                <li><a href="#">여행약관</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">여행보험</a></li>
+                <li><a href="#">온라인제휴안내</a></li>
+                <li><a href="#">여행플래너</a></li>
+                <li><a href="#">대리점개설문의</a></li>
+            </ul>  
+                <hr class="bottom_line"> 
+
+                <div id="footer_logo">
+                    <a href="#"><img src="img/mytour_footer.png" alt="mytour"></a>
+                </div>
+
+                <div id="footer_right">
+                    <p>(주)마이투어네트워크 대표이사 : 장태훈</p>
+                    <address>사업자 등록번호 : 202-81-00000 | 통신판매업신고번호 : 중구 제03500호 | 호스팅 업체 : (주)마이투어네트워크 <button><a href="#">사업자정보확인▶</a></button></address>
+                    <p>등록번호 : 1989-04(서울특별시 중구) | 영업여행업보증 : 10억 | 기획여행업보증 : 5억원</p>
+                    <p>상담문의 : 1544-8217 | FAX : 02-1234-7800 | 주소 : 서울특별시 중구 을지로 16 백남빌딩 5층</p>
+                    <p>※ 부득이한 사정에 의해 확정된 여행일정이 변경되는 경우 여행자의 사전 동의를 받습니다.</p>
+                    <p>※ ㈜ 마이투어는 항공사가 제공하는 개별 항공권 및 여행사가 제공하는 일부 여행상품에 대하여 통신판매중개자의 지위를 가지며, 해당 상품, 상품정보, 거래에 관한 의무와 책임은 판매자에게 있습니다.</p>
+                    <p>COPYRIGHT 1989-2019 MODETOUR. ALL RIGHTS RESERVED.</p>
+                </div>
+        </div>
+
+    </footer>
+</body>
+</html>
